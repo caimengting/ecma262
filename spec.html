@@ -2578,7 +2578,7 @@
           An <dfn variants="accessor properties">accessor property</dfn> associates a key value with one or two accessor functions, and a set of Boolean attributes. The accessor functions are used to store or retrieve an ECMAScript language value that is associated with the property.
         </li>
       </ul>
-      <p>Properties are identified using key values. A property key value is either an ECMAScript String value or a Symbol value. All String and Symbol values, including the empty String, are valid as property keys. A <dfn id="property-name">property name</dfn> is a property key that is a String value.</p>
+      <p>Properties are identified using key values. A <dfn variants="property keys">property key</dfn> value is either an ECMAScript String value or a Symbol value. All String and Symbol values, including the empty String, are valid as property keys. A <dfn id="property-name">property name</dfn> is a property key that is a String value.</p>
       <p>An <dfn id="integer-index" variants="integer indices">integer index</dfn> is a String-valued property key that is a canonical numeric String (see <emu-xref href="#sec-canonicalnumericindexstring"></emu-xref>) and whose numeric value is either *+0*<sub>𝔽</sub> or a positive integral Number &le; 𝔽(2<sup>53</sup> - 1). An <dfn id="array-index" variants="array indices">array index</dfn> is an integer index whose numeric value _i_ is in the range <emu-eqn>*+0*<sub>𝔽</sub> &le; _i_ &lt; 𝔽(2<sup>32</sup> - 1)</emu-eqn>.</p>
       <p>Property keys are used to access properties and their values. There are two kinds of access for properties: <em>get</em> and <em>set</em>, corresponding to value retrieval and assignment, respectively. The properties accessible via get and set access includes both <em>own properties</em> that are a direct part of an object and <em>inherited properties</em> which are provided by another associated object via a property inheritance relationship. Inherited properties may be either own or inherited properties of the associated object. Each own property of an object must each have a key value that is distinct from the key values of the other own properties of that object.</p>
       <p>All objects are logically collections of properties, but there are multiple forms of objects that differ in their semantics for accessing and manipulating their properties. Please see <emu-xref href="#sec-object-internal-methods-and-internal-slots"></emu-xref> for definitions of the multiple forms of objects.</p>
@@ -4806,7 +4806,7 @@
           OrdinaryToPrimitive (
             _O_: an Object,
             _hint_: ~string~ or ~number~,
-          )
+          ): a Completion Record
         </h1>
         <dl class="header">
         </dl>
@@ -4829,7 +4829,7 @@
       <h1>
         ToBoolean (
           _argument_: unknown,
-        )
+        ): a Boolean
       </h1>
       <dl class="header">
         <dt>description</dt>
@@ -4920,7 +4920,7 @@
       <h1>
         ToNumeric (
           _value_: unknown,
-        )
+        ): a Completion Record normally containing a Number or a BigInt
       </h1>
       <dl class="header">
         <dt>description</dt>
@@ -4937,7 +4937,7 @@
       <h1>
         ToNumber (
           _argument_: unknown,
-        )
+        ): a Completion Record normally containing a Number
       </h1>
       <dl class="header">
         <dt>description</dt>
@@ -5084,11 +5084,9 @@
           <h1>
             StringToNumber (
               _str_: a String,
-            )
+            ): a Number
           </h1>
           <dl class="header">
-            <dt>description</dt>
-            <dd>It returns a Number.</dd>
           </dl>
           <emu-alg>
             1. Let _text_ be ! StringToCodePoints(_str_).
@@ -5099,7 +5097,7 @@
         </emu-clause>
 
         <emu-clause id="sec-runtime-semantics-stringnumericvalue" type="sdo" oldids="sec-runtime-semantics-mv-s">
-          <h1>Runtime Semantics: StringNumericValue</h1>
+          <h1>Runtime Semantics: StringNumericValue (): a Number</h1>
           <dl class="header">
           </dl>
           <emu-note>
@@ -5158,7 +5156,7 @@
           <h1>
             RoundMVResult (
               _n_: a mathematical value,
-            )
+            ): a Number
           </h1>
           <dl class="header">
             <dt>description</dt>
@@ -5179,7 +5177,7 @@
       <h1>
         ToIntegerOrInfinity (
           _argument_: an ECMAScript language value,
-        )
+        ): an integer, +&infin;, or -&infin;
       </h1>
       <dl class="header">
         <dt>description</dt>
@@ -5200,7 +5198,7 @@
       <h1>
         ToInt32 (
           _argument_: unknown,
-        )
+        ): an integral Number
       </h1>
       <dl class="header">
         <dt>description</dt>
@@ -5233,7 +5231,7 @@
       <h1>
         ToUint32 (
           _argument_: unknown,
-        )
+        ): an integral Number
       </h1>
       <dl class="header">
         <dt>description</dt>
@@ -5269,7 +5267,7 @@
       <h1>
         ToInt16 (
           _argument_: unknown,
-        )
+        ): an integral Number
       </h1>
       <dl class="header">
         <dt>description</dt>
@@ -5288,7 +5286,7 @@
       <h1>
         ToUint16 (
           _argument_: unknown,
-        )
+        ): an integral Number
       </h1>
       <dl class="header">
         <dt>description</dt>
@@ -5318,7 +5316,7 @@
       <h1>
         ToInt8 (
           _argument_: unknown,
-        )
+        ): an integral Number
       </h1>
       <dl class="header">
         <dt>description</dt>
@@ -5337,7 +5335,7 @@
       <h1>
         ToUint8 (
           _argument_: unknown,
-        )
+        ): an integral Number
       </h1>
       <dl class="header">
         <dt>description</dt>
@@ -5356,7 +5354,7 @@
       <h1>
         ToUint8Clamp (
           _argument_: unknown,
-        )
+        ): an integral Number
       </h1>
       <dl class="header">
         <dt>description</dt>
@@ -5382,7 +5380,7 @@
       <h1>
         ToBigInt (
           _argument_: unknown,
-        )
+        ): a Completion Record normally containing a BigInt
       </h1>
       <dl class="header">
         <dt>description</dt>
@@ -5470,7 +5468,7 @@
       <h1>
         StringToBigInt (
           _str_: a String,
-        )
+        ): a BigInt or *NaN*
       </h1>
       <dl class="header">
         <dt>description</dt>
@@ -5517,7 +5515,7 @@
       <h1>
         ToBigInt64 (
           _argument_: unknown,
-        )
+        ): a Completion Record normally containing a BigInt
       </h1>
       <dl class="header">
         <dt>description</dt>
@@ -5534,7 +5532,7 @@
       <h1>
         ToBigUint64 (
           _argument_: unknown,
-        )
+        ): a Completion Record normally containing a BigInt
       </h1>
       <dl class="header">
         <dt>description</dt>
@@ -5551,7 +5549,7 @@
       <h1>
         ToString (
           _argument_: unknown,
-        )
+        ): a Completion Record normally containing a String
       </h1>
       <dl class="header">
         <dt>description</dt>
@@ -5644,7 +5642,7 @@
       <h1>
         ToObject (
           _argument_: unknown,
-        )
+        ): a Completion Record
       </h1>
       <dl class="header">
         <dt>description</dt>
@@ -5732,7 +5730,7 @@
       <h1>
         ToPropertyKey (
           _argument_: unknown,
-        )
+        ): a Completion Record normally containing a property key
       </h1>
       <dl class="header">
         <dt>description</dt>
@@ -5750,7 +5748,7 @@
       <h1>
         ToLength (
           _argument_: an ECMAScript language value,
-        )
+        ): a Completion Record normally containing an integral Number
       </h1>
       <dl class="header">
         <dt>description</dt>
@@ -5767,7 +5765,7 @@
       <h1>
         CanonicalNumericIndexString (
           _argument_: a String,
-        )
+        ): a String or *undefined*
       </h1>
       <dl class="header">
         <dt>description</dt>
@@ -5786,7 +5784,7 @@
       <h1>
         ToIndex (
           _value_: an ECMAScript language value,
-        )
+        ): a Completion Record normally containing a non-negative integer
       </h1>
       <dl class="header">
         <dt>description</dt>
