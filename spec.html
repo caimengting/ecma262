@@ -2921,7 +2921,7 @@
                 [[OwnPropertyKeys]]
               </td>
               <td>
-                ( ) <b>&rarr;</b> List of propertyKey
+                ( ) <b>&rarr;</b> List of property keys
               </td>
               <td>
                 Return a List whose elements are all of the own property keys for the object.
@@ -5810,7 +5810,7 @@
       <h1>
         RequireObjectCoercible (
           _argument_: unknown,
-        )
+        ): a Completion Record
       </h1>
       <dl class="header">
         <dt>description</dt>
@@ -5898,7 +5898,7 @@
       <h1>
         IsArray (
           _argument_: unknown,
-        )
+        ): a Completion Record normally containing a Boolean
       </h1>
       <dl class="header">
       </dl>
@@ -5917,7 +5917,7 @@
       <h1>
         IsCallable (
           _argument_: an ECMAScript language value,
-        )
+        ): a Boolean
       </h1>
       <dl class="header">
         <dt>description</dt>
@@ -5934,7 +5934,7 @@
       <h1>
         IsConstructor (
           _argument_: an ECMAScript language value,
-        )
+        ): a Boolean
       </h1>
       <dl class="header">
         <dt>description</dt>
@@ -5951,11 +5951,11 @@
       <h1>
         IsExtensible (
           _O_: an Object,
-        )
+        ): a Completion Record normally containing a Boolean
       </h1>
       <dl class="header">
         <dt>description</dt>
-        <dd>It returns a completion record which, if its [[Type]] is ~normal~, has a [[Value]] which is a Boolean. It is used to determine whether additional properties can be added to _O_.</dd>
+        <dd>It is used to determine whether additional properties can be added to _O_.</dd>
       </dl>
       <emu-alg>
         1. Return ? _O_.[[IsExtensible]]().
@@ -5966,7 +5966,7 @@
       <h1>
         IsIntegralNumber (
           _argument_: unknown,
-        )
+        ): a Boolean
       </h1>
       <dl class="header">
         <dt>description</dt>
@@ -5984,7 +5984,7 @@
       <h1>
         IsPropertyKey (
           _argument_: an ECMAScript language value,
-        )
+        ): a Boolean
       </h1>
       <dl class="header">
         <dt>description</dt>
@@ -6001,7 +6001,7 @@
       <h1>
         IsRegExp (
           _argument_: unknown,
-        )
+        ): a Completion Record normally containing a Boolean
       </h1>
       <dl class="header">
       </dl>
@@ -6019,7 +6019,7 @@
         IsStringPrefix (
           _p_: a String,
           _q_: a String,
-        )
+        ): a Boolean
       </h1>
       <dl class="header">
         <dt>description</dt>
@@ -6060,11 +6060,11 @@
         SameValue (
           _x_: an ECMAScript language value,
           _y_: an ECMAScript language value,
-        )
+        ): a Boolean
       </h1>
       <dl class="header">
         <dt>description</dt>
-        <dd>It returns a completion record whose [[Type]] is ~normal~ and whose [[Value]] is a Boolean indicating whether or not the two arguments are the same value.</dd>
+        <dd>It determines whether or not the two arguments are the same value.</dd>
       </dl>
       <emu-alg>
         1. If Type(_x_) is different from Type(_y_), return *false*.
@@ -6084,11 +6084,11 @@
         SameValueZero (
           _x_: an ECMAScript language value,
           _y_: an ECMAScript language value,
-        )
+        ): a Boolean
       </h1>
       <dl class="header">
         <dt>description</dt>
-        <dd>It returns a completion record whose [[Type]] is ~normal~ and whose [[Value]] is a Boolean indicating whether or not the two arguments are the same value (ignoring the difference between *+0*<sub>𝔽</sub> and *-0*<sub>𝔽</sub>).</dd>
+        <dd>It determines whether or not the two arguments are the same value (ignoring the difference between *+0*<sub>𝔽</sub> and *-0*<sub>𝔽</sub>).</dd>
       </dl>
       <emu-alg>
         1. If Type(_x_) is different from Type(_y_), return *false*.
@@ -6108,11 +6108,9 @@
         SameValueNonNumeric (
           _x_: an ECMAScript language value, but not a Number or a BigInt,
           _y_: an ECMAScript language value, but not a Number or a BigInt,
-        )
+        ): a Boolean
       </h1>
       <dl class="header">
-        <dt>description</dt>
-        <dd>It returns a completion record whose [[Type]] is ~normal~ and whose [[Value]] is a Boolean.</dd>
       </dl>
       <emu-alg>
         1. Assert: Type(_x_) is the same as Type(_y_).
@@ -6134,7 +6132,7 @@
           _x_: an ECMAScript language value,
           _y_: an ECMAScript language value,
           _LeftFirst_: a Boolean,
-        )
+        ): a Completion Record normally containing a Boolean
       </h1>
       <dl class="header">
         <dt>description</dt>
@@ -6192,11 +6190,11 @@
         IsLooselyEqual (
           _x_: an ECMAScript language value,
           _y_: an ECMAScript language value,
-        )
+        ): a Completion Record normally containing a Boolean
       </h1>
       <dl class="header">
         <dt>description</dt>
-        <dd>It provides the semantics for the comparison _x_ == _y_, returning *true* or *false*.</dd>
+        <dd>It provides the semantics for the comparison _x_ == _y_.</dd>
       </dl>
       <emu-alg>
         1. If Type(_x_) is the same as Type(_y_), then
@@ -6227,11 +6225,11 @@
         IsStrictlyEqual (
           _x_: an ECMAScript language value,
           _y_: an ECMAScript language value,
-        )
+        ): a Boolean
       </h1>
       <dl class="header">
         <dt>description</dt>
-        <dd>It provides the semantics for the comparison _x_ === _y_, returning *true* or *false*.</dd>
+        <dd>It provides the semantics for the comparison _x_ === _y_.</dd>
       </dl>
       <emu-alg>
         1. If Type(_x_) is different from Type(_y_), return *false*.
@@ -6254,7 +6252,7 @@
       <h1>
         MakeBasicObject (
           _internalSlotsList_: a List of internal slot names,
-        )
+        ): an Object
       </h1>
       <dl class="header">
         <dt>description</dt>
@@ -6280,7 +6278,7 @@
         Get (
           _O_: an Object,
           _P_: a property key,
-        )
+        ): a Completion Record
       </h1>
       <dl class="header">
         <dt>description</dt>
@@ -6296,7 +6294,7 @@
         GetV (
           _V_: an ECMAScript language value,
           _P_: a property key,
-        )
+        ): a Completion Record
       </h1>
       <dl class="header">
         <dt>description</dt>
@@ -6315,7 +6313,7 @@
           _P_: a property key,
           _V_: an ECMAScript language value,
           _Throw_: a Boolean,
-        )
+        ): a Completion Record normally containing a Boolean
       </h1>
       <dl class="header">
         <dt>description</dt>
@@ -6334,7 +6332,7 @@
           _O_: an Object,
           _P_: a property key,
           _V_: an ECMAScript language value,
-        )
+        ): a Completion Record normally containing a Boolean
       </h1>
       <dl class="header">
         <dt>description</dt>
@@ -6355,7 +6353,7 @@
           _O_: an Object,
           _P_: a property key,
           _V_: an ECMAScript language value,
-        )
+        ): a Completion Record normally containing a Boolean
       </h1>
       <dl class="header">
         <dt>description</dt>
@@ -6376,7 +6374,7 @@
           _O_: an Object,
           _P_: a property key,
           _V_: an ECMAScript language value,
-        )
+        ): a Completion Record normally containing a Boolean
       </h1>
       <dl class="header">
         <dt>description</dt>
@@ -6419,7 +6417,7 @@
           _O_: an Object,
           _P_: a property key,
           _desc_: a Property Descriptor,
-        )
+        ): a Completion Record normally containing a Boolean
       </h1>
       <dl class="header">
         <dt>description</dt>
@@ -6437,7 +6435,7 @@
         DeletePropertyOrThrow (
           _O_: an Object,
           _P_: a property key,
-        )
+        ): a Completion Record normally containing a Boolean
       </h1>
       <dl class="header">
         <dt>description</dt>
@@ -6455,7 +6453,7 @@
         GetMethod (
           _V_: an ECMAScript language value,
           _P_: a property key,
-        )
+        ): a Completion Record normally containing a callable object or *undefined*
       </h1>
       <dl class="header">
         <dt>description</dt>
@@ -6474,7 +6472,7 @@
         HasProperty (
           _O_: an Object,
           _P_: a property key,
-        )
+        ): a Completion Record normally containing a Boolean
       </h1>
       <dl class="header">
         <dt>description</dt>
@@ -6490,7 +6488,7 @@
         HasOwnProperty (
           _O_: an Object,
           _P_: a property key,
-        )
+        ): a Completion Record normally containing a Boolean
       </h1>
       <dl class="header">
         <dt>description</dt>
@@ -6509,7 +6507,7 @@
           _F_: an ECMAScript language value,
           _V_: an ECMAScript language value,
           optional _argumentsList_: a List of ECMAScript language values,
-        )
+        ): a Completion Record
       </h1>
       <dl class="header">
         <dt>description</dt>
@@ -6528,7 +6526,7 @@
           _F_: a constructor,
           optional _argumentsList_: unknown,
           optional _newTarget_: a constructor,
-        )
+        ): a Completion Record
       </h1>
       <dl class="header">
         <dt>description</dt>
@@ -6549,7 +6547,7 @@
         SetIntegrityLevel (
           _O_: an Object,
           _level_: ~sealed~ or ~frozen~,
-        )
+        ): a Completion Record normally containing a Boolean
       </h1>
       <dl class="header">
         <dt>description</dt>
@@ -6581,7 +6579,7 @@
         TestIntegrityLevel (
           _O_: an Object,
           _level_: ~sealed~ or ~frozen~,
-        )
+        ): a Completion Record normally containing a Boolean
       </h1>
       <dl class="header">
         <dt>description</dt>
@@ -6606,7 +6604,7 @@
       <h1>
         CreateArrayFromList (
           _elements_: a List of ECMAScript language values,
-        )
+        ): an Array
       </h1>
       <dl class="header">
         <dt>description</dt>
@@ -6626,7 +6624,7 @@
       <h1>
         LengthOfArrayLike (
           _obj_: an Object,
-        )
+        ): a Completion Record normally containing an integer
       </h1>
       <dl class="header">
         <dt>description</dt>
@@ -6649,7 +6647,7 @@
         CreateListFromArrayLike (
           _obj_: unknown,
           optional _elementTypes_: a List of names of ECMAScript Language Types,
-        )
+        ): a Completion Record normally containing a List
       </h1>
       <dl class="header">
         <dt>description</dt>
@@ -6677,7 +6675,7 @@
           _V_: an ECMAScript language value,
           _P_: a property key,
           optional _argumentsList_: a List of ECMAScript language values,
-        )
+        ): a Completion Record
       </h1>
       <dl class="header">
         <dt>description</dt>
@@ -6696,7 +6694,7 @@
         OrdinaryHasInstance (
           _C_: an ECMAScript language value,
           _O_: unknown,
-        )
+        ): a Completion Record normally containing a Boolean
       </h1>
       <dl class="header">
         <dt>description</dt>
