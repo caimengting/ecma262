@@ -6453,7 +6453,7 @@
         GetMethod (
           _V_: an ECMAScript language value,
           _P_: a property key,
-        ): a Completion Record normally containing a callable object or *undefined*
+        ): a Completion Record normally containing a function object or *undefined*
       </h1>
       <dl class="header">
         <dt>description</dt>
@@ -6720,7 +6720,7 @@
         SpeciesConstructor (
           _O_: an Object,
           _defaultConstructor_: a constructor,
-        )
+        ): a Completion Record normally containing a constructor
       </h1>
       <dl class="header">
         <dt>description</dt>
@@ -6742,7 +6742,7 @@
         EnumerableOwnPropertyNames (
           _O_: an Object,
           _kind_: ~key~, ~value~, or ~key+value~,
-        )
+        ): a Completion Record normally containing a List
       </h1>
       <dl class="header">
       </dl>
@@ -6769,7 +6769,7 @@
       <h1>
         GetFunctionRealm (
           _obj_: a function object,
-        )
+        ): a Completion Record normally containing a Realm Record
       </h1>
       <dl class="header">
       </dl>
@@ -6796,7 +6796,7 @@
           _target_: an Object,
           _source_: an ECMAScript language value,
           _excludedItems_: a List of property keys,
-        )
+        ): a Completion Record normally containing _target_
       </h1>
       <dl class="header">
       </dl>
@@ -6826,7 +6826,7 @@
         PrivateElementFind (
           _O_: an Object,
           _P_: a Private Name,
-        )
+        ): a PrivateElement or ~empty~
       </h1>
       <dl class="header">
       </dl>
@@ -6844,7 +6844,7 @@
           _O_: an Object,
           _P_: a Private Name,
           _value_: an ECMAScript language value,
-        )
+        ): a Completion Record normally containing ~unused~
       </h1>
       <dl class="header">
       </dl>
@@ -6852,6 +6852,7 @@
         1. Let _entry_ be ! PrivateElementFind(_O_, _P_).
         1. If _entry_ is not ~empty~, throw a *TypeError* exception.
         1. Append PrivateElement { [[Key]]: _P_, [[Kind]]: ~field~, [[Value]]: _value_ } to _O_.[[PrivateElements]].
+        1. Return ~unused~.
       </emu-alg>
     </emu-clause>
 
@@ -6860,7 +6861,7 @@
         PrivateMethodOrAccessorAdd (
           _O_: an Object,
           _method_: a PrivateElement,
-        )
+        ): a Completion Record normally containing ~unused~
       </h1>
       <dl class="header">
       </dl>
@@ -6869,8 +6870,11 @@
         1. Let _entry_ be ! PrivateElementFind(_O_, _method_.[[Key]]).
         1. If _entry_ is not ~empty~, throw a *TypeError* exception.
         1. Append _method_ to _O_.[[PrivateElements]].
-        1. NOTE: The values for private methods and accessors are shared across instances. This step does not create a new copy of the method or accessor.
+        1. Return ~unused~.
       </emu-alg>
+      <emu-note>
+        <p>The values for private methods and accessors are shared across instances. This operation does not create a new copy of the method or accessor.</p>
+      </emu-note>
     </emu-clause>
 
     <emu-clause id="sec-privateget" type="abstract operation">
@@ -6878,7 +6882,7 @@
         PrivateGet (
           _O_: an Object,
           _P_: a Private Name,
-        )
+        ): a Completion Record
       </h1>
       <dl class="header">
       </dl>
@@ -6900,7 +6904,7 @@
           _O_: an Object,
           _P_: a Private Name,
           _value_: an ECMAScript language value,
-        )
+        ): a Completion Record normally containing ~unused~
       </h1>
       <dl class="header">
       </dl>
@@ -6916,6 +6920,7 @@
           1. If _entry_.[[Set]] is *undefined*, throw a *TypeError* exception.
           1. Let _setter_ be _entry_.[[Set]].
           1. Perform ? Call(_setter_, _O_, &laquo; _value_ &raquo;).
+        1. Return ~unused~.
       </emu-alg>
     </emu-clause>
 
@@ -6924,7 +6929,7 @@
         DefineField (
           _receiver_: an Object,
           _fieldRecord_: a ClassFieldDefinition Record,
-        )
+        ): a Completion Record normally containing ~unused~
       </h1>
       <dl class="header">
       </dl>
@@ -6939,6 +6944,7 @@
         1. Else,
           1. Assert: ! IsPropertyKey(_fieldName_) is *true*.
           1. Perform ? CreateDataPropertyOrThrow(_receiver_, _fieldName_, _initValue_).
+        1. Return ~unused~.
       </emu-alg>
     </emu-clause>
 
@@ -6947,7 +6953,7 @@
         InitializeInstanceElements (
           _O_: an Object,
           _constructor_: an ECMAScript function object,
-        )
+        ): a Completion Record normally containing ~unused~
       </h1>
       <dl class="header">
       </dl>
@@ -6958,6 +6964,7 @@
         1. Let _fields_ be the value of _constructor_.[[Fields]].
         1. For each element _fieldRecord_ of _fields_, do
           1. Perform ? DefineField(_O_, _fieldRecord_).
+        1. Return ~unused~.
       </emu-alg>
     </emu-clause>
   </emu-clause>
@@ -6972,7 +6979,7 @@
           _obj_: unknown,
           optional _hint_: ~sync~ or ~async~,
           optional _method_: unknown,
-        )
+        ): a Completion Record normally containing an Iterator Record
       </h1>
       <dl class="header">
       </dl>
@@ -6999,7 +7006,7 @@
         IteratorNext (
           _iteratorRecord_: unknown,
           optional _value_: unknown,
-        )
+        ): a Completion Record normally containing an Object
       </h1>
       <dl class="header">
       </dl>
@@ -7017,7 +7024,7 @@
       <h1>
         IteratorComplete (
           _iterResult_: an Object,
-        )
+        ): a Completion Record normally containing a Boolean
       </h1>
       <dl class="header">
       </dl>
@@ -7030,7 +7037,7 @@
       <h1>
         IteratorValue (
           _iterResult_: an Object,
-        )
+        ): a Completion Record
       </h1>
       <dl class="header">
       </dl>
@@ -7043,7 +7050,7 @@
       <h1>
         IteratorStep (
           _iteratorRecord_: unknown,
-        )
+        ): a Completion Record normally containing an Object or *false*
       </h1>
       <dl class="header">
         <dt>description</dt>
