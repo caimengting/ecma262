@@ -7069,7 +7069,7 @@
         IteratorClose (
           _iteratorRecord_: unknown,
           _completion_: a Completion Record,
-        )
+        ): a Completion Record
       </h1>
       <dl class="header">
         <dt>description</dt>
@@ -7108,7 +7108,7 @@
         AsyncIteratorClose (
           _iteratorRecord_: unknown,
           _completion_: a Completion Record,
-        )
+        ): a Completion Record
       </h1>
       <dl class="header">
         <dt>description</dt>
@@ -7135,7 +7135,7 @@
         CreateIterResultObject (
           _value_: unknown,
           _done_: a Boolean,
-        )
+        ): an Object that conforms to the <i>IteratorResult</i> interface
       </h1>
       <dl class="header">
         <dt>description</dt>
@@ -7153,7 +7153,7 @@
       <h1>
         CreateListIteratorRecord (
           _list_: unknown,
-        )
+        ): a Completion Record normally containing an Iterator Record or *undefined*
       </h1>
       <dl class="header">
         <dt>description</dt>
@@ -7177,7 +7177,7 @@
         IterableToList (
           _items_: unknown,
           optional _method_: unknown,
-        )
+        ): a Completion Record normally containing a List
       </h1>
       <dl class="header">
       </dl>
@@ -7207,7 +7207,7 @@
     <h1>Scope Analysis</h1>
 
     <emu-clause id="sec-static-semantics-boundnames" oldids="sec-identifiers-static-semantics-boundnames,sec-let-and-const-declarations-static-semantics-boundnames,sec-variable-statement-static-semantics-boundnames,sec-destructuring-binding-patterns-static-semantics-boundnames,sec-for-in-and-for-of-statements-static-semantics-boundnames,sec-function-definitions-static-semantics-boundnames,sec-arrow-function-definitions-static-semantics-boundnames,sec-generator-function-definitions-static-semantics-boundnames,sec-async-generator-function-definitions-static-semantics-boundnames,sec-class-definitions-static-semantics-boundnames,sec-async-function-definitions-static-semantics-BoundNames,sec-async-arrow-function-definitions-static-semantics-BoundNames,sec-imports-static-semantics-boundnames,sec-exports-static-semantics-boundnames" type="sdo">
-      <h1>Static Semantics: BoundNames</h1>
+      <h1>Static Semantics: BoundNames () : a List of Strings</h1>
       <dl class="header">
       </dl>
       <emu-note id="note-star-default-star">
@@ -7458,7 +7458,7 @@
     </emu-clause>
 
     <emu-clause id="sec-static-semantics-declarationpart" type="sdo">
-      <h1>Static Semantics: DeclarationPart</h1>
+      <h1>Static Semantics: DeclarationPart (): a Parse Node</h1>
       <dl class="header">
       </dl>
       <emu-grammar>HoistableDeclaration : FunctionDeclaration</emu-grammar>
@@ -7488,7 +7488,7 @@
     </emu-clause>
 
     <emu-clause id="sec-static-semantics-isconstantdeclaration" oldids="sec-let-and-const-declarations-static-semantics-isconstantdeclaration,sec-function-definitions-static-semantics-isconstantdeclaration,sec-generator-function-definitions-static-semantics-isconstantdeclaration,sec-async-generator-function-definitions-static-semantics-isconstantdeclaration,sec-class-definitions-static-semantics-isconstantdeclaration,sec-async-function-definitions-static-semantics-IsConstantDeclaration,sec-exports-static-semantics-isconstantdeclaration" type="sdo">
-      <h1>Static Semantics: IsConstantDeclaration</h1>
+      <h1>Static Semantics: IsConstantDeclaration (): a Boolean</h1>
       <dl class="header">
       </dl>
       <emu-grammar>LexicalDeclaration : LetOrConst BindingList `;`</emu-grammar>
@@ -7546,7 +7546,7 @@
     </emu-clause>
 
     <emu-clause id="sec-static-semantics-lexicallydeclarednames" oldids="sec-block-static-semantics-lexicallydeclarednames,sec-switch-statement-static-semantics-lexicallydeclarednames,sec-labelled-statements-static-semantics-lexicallydeclarednames,sec-function-definitions-static-semantics-lexicallydeclarednames,sec-arrow-function-definitions-static-semantics-lexicallydeclarednames,sec-async-arrow-function-definitions-static-semantics-LexicallyDeclaredNames,sec-scripts-static-semantics-lexicallydeclarednames,sec-module-semantics-static-semantics-lexicallydeclarednames" type="sdo">
-      <h1>Static Semantics: LexicallyDeclaredNames</h1>
+      <h1>Static Semantics: LexicallyDeclaredNames (): a List of Strings</h1>
       <dl class="header">
       </dl>
       <emu-grammar>Block : `{` `}`</emu-grammar>
@@ -7674,7 +7674,7 @@
     </emu-clause>
 
     <emu-clause id="sec-static-semantics-lexicallyscopeddeclarations" oldids="sec-block-static-semantics-lexicallyscopeddeclarations,sec-switch-statement-static-semantics-lexicallyscopeddeclarations,sec-labelled-statements-static-semantics-lexicallyscopeddeclarations,sec-function-definitions-static-semantics-lexicallyscopeddeclarations,sec-arrow-function-definitions-static-semantics-lexicallyscopeddeclarations,sec-async-arrow-function-definitions-static-semantics-LexicallyScopedDeclarations,sec-scripts-static-semantics-lexicallyscopeddeclarations,sec-module-semantics-static-semantics-lexicallyscopeddeclarations,sec-exports-static-semantics-lexicallyscopeddeclarations" type="sdo">
-      <h1>Static Semantics: LexicallyScopedDeclarations</h1>
+      <h1>Static Semantics: LexicallyScopedDeclarations (): a List of Parse Nodes</h1>
       <dl class="header">
       </dl>
       <emu-grammar>StatementList : StatementList StatementListItem</emu-grammar>
@@ -7809,7 +7809,7 @@
     </emu-clause>
 
     <emu-clause id="sec-static-semantics-vardeclarednames" oldids="sec-statement-semantics-static-semantics-vardeclarednames,sec-block-static-semantics-vardeclarednames,sec-variable-statement-static-semantics-vardeclarednames,sec-if-statement-static-semantics-vardeclarednames,sec-do-while-statement-static-semantics-vardeclarednames,sec-while-statement-static-semantics-vardeclarednames,sec-for-statement-static-semantics-vardeclarednames,sec-for-in-and-for-of-statements-static-semantics-vardeclarednames,sec-with-statement-static-semantics-vardeclarednames,sec-switch-statement-static-semantics-vardeclarednames,sec-labelled-statements-static-semantics-vardeclarednames,sec-try-statement-static-semantics-vardeclarednames,sec-function-definitions-static-semantics-vardeclarednames,sec-arrow-function-definitions-static-semantics-vardeclarednames,sec-async-arrow-function-definitions-static-semantics-VarDeclaredNames,sec-scripts-static-semantics-vardeclarednames,sec-module-semantics-static-semantics-vardeclarednames" type="sdo">
-      <h1>Static Semantics: VarDeclaredNames</h1>
+      <h1>Static Semantics: VarDeclaredNames (): a List of Strings</h1>
       <dl class="header">
       </dl>
       <emu-grammar>
@@ -8021,7 +8021,7 @@
     </emu-clause>
 
     <emu-clause id="sec-static-semantics-varscopeddeclarations" oldids="sec-statement-semantics-static-semantics-varscopeddeclarations,sec-block-static-semantics-varscopeddeclarations,sec-variable-statement-static-semantics-varscopeddeclarations,sec-if-statement-static-semantics-varscopeddeclarations,sec-do-while-statement-static-semantics-varscopeddeclarations,sec-while-statement-static-semantics-varscopeddeclarations,sec-for-statement-static-semantics-varscopeddeclarations,sec-for-in-and-for-of-statements-static-semantics-varscopeddeclarations,sec-with-statement-static-semantics-varscopeddeclarations,sec-switch-statement-static-semantics-varscopeddeclarations,sec-labelled-statements-static-semantics-varscopeddeclarations,sec-try-statement-static-semantics-varscopeddeclarations,sec-function-definitions-static-semantics-varscopeddeclarations,sec-arrow-function-definitions-static-semantics-varscopeddeclarations,sec-async-arrow-function-definitions-static-semantics-VarScopedDeclarations,sec-scripts-static-semantics-varscopeddeclarations,sec-module-semantics-static-semantics-varscopeddeclarations" type="sdo">
-      <h1>Static Semantics: VarScopedDeclarations</h1>
+      <h1>Static Semantics: VarScopedDeclarations (): a List of Parse Nodes</h1>
       <dl class="header">
       </dl>
       <emu-grammar>
@@ -8242,7 +8242,7 @@
     </emu-clause>
 
     <emu-clause id="sec-static-semantics-toplevellexicallydeclarednames" oldids="sec-block-static-semantics-toplevellexicallydeclarednames,sec-labelled-statements-static-semantics-toplevellexicallydeclarednames" type="sdo">
-      <h1>Static Semantics: TopLevelLexicallyDeclaredNames</h1>
+      <h1>Static Semantics: TopLevelLexicallyDeclaredNames (): a List of Strings</h1>
       <dl class="header">
       </dl>
       <emu-grammar>StatementList : StatementList StatementListItem</emu-grammar>
@@ -8267,7 +8267,7 @@
     </emu-clause>
 
     <emu-clause id="sec-static-semantics-toplevellexicallyscopeddeclarations" oldids="sec-block-static-semantics-toplevellexicallyscopeddeclarations,sec-labelled-statements-static-semantics-toplevellexicallyscopeddeclarations" type="sdo">
-      <h1>Static Semantics: TopLevelLexicallyScopedDeclarations</h1>
+      <h1>Static Semantics: TopLevelLexicallyScopedDeclarations (): a List of Parse Nodes</h1>
       <dl class="header">
       </dl>
       <emu-grammar>StatementList : StatementList StatementListItem</emu-grammar>
@@ -8289,7 +8289,7 @@
     </emu-clause>
 
     <emu-clause id="sec-static-semantics-toplevelvardeclarednames" oldids="sec-block-static-semantics-toplevelvardeclarednames,sec-labelled-statements-static-semantics-toplevelvardeclarednames" type="sdo">
-      <h1>Static Semantics: TopLevelVarDeclaredNames</h1>
+      <h1>Static Semantics: TopLevelVarDeclaredNames (): a List of Strings</h1>
       <dl class="header">
       </dl>
       <emu-grammar>StatementList : StatementList StatementListItem</emu-grammar>
@@ -8328,7 +8328,7 @@
     </emu-clause>
 
     <emu-clause id="sec-static-semantics-toplevelvarscopeddeclarations" oldids="sec-block-static-semantics-toplevelvarscopeddeclarations,sec-labelled-statements-static-semantics-toplevelvarscopeddeclarations" type="sdo">
-      <h1>Static Semantics: TopLevelVarScopedDeclarations</h1>
+      <h1>Static Semantics: TopLevelVarScopedDeclarations (): a List of Parse Nodes</h1>
       <dl class="header">
       </dl>
       <emu-grammar>StatementList : StatementList StatementListItem</emu-grammar>
@@ -8372,7 +8372,7 @@
       <h1>
         Static Semantics: ContainsDuplicateLabels (
           _labelSet_: unknown,
-        )
+        ): a Boolean
       </h1>
       <dl class="header">
       </dl>
@@ -8544,7 +8544,7 @@
       <h1>
         Static Semantics: ContainsUndefinedBreakTarget (
           _labelSet_: unknown,
-        )
+        ): a Boolean
       </h1>
       <dl class="header">
       </dl>
@@ -8724,7 +8724,7 @@
         Static Semantics: ContainsUndefinedContinueTarget (
           _iterationSet_: unknown,
           _labelSet_: unknown,
-        )
+        ): a Boolean
       </h1>
       <dl class="header">
       </dl>
@@ -8913,7 +8913,7 @@
     <h1>Function Name Inference</h1>
 
     <emu-clause id="sec-static-semantics-hasname" oldids="sec-semantics-static-semantics-hasname,sec-function-definitions-static-semantics-hasname,sec-arrow-function-definitions-static-semantics-hasname,sec-generator-function-definitions-static-semantics-hasname,sec-async-generator-function-definitions-static-semantics-hasname,sec-class-definitions-static-semantics-hasname,sec-async-function-definitions-static-semantics-HasName,sec-async-arrow-function-definitions-static-semantics-HasName" type="sdo">
-      <h1>Static Semantics: HasName</h1>
+      <h1>Static Semantics: HasName (): a Boolean</h1>
       <dl class="header">
       </dl>
       <emu-grammar>PrimaryExpression : CoverParenthesizedExpressionAndArrowParameterList</emu-grammar>
@@ -8970,7 +8970,7 @@
     </emu-clause>
 
     <emu-clause id="sec-static-semantics-isfunctiondefinition" oldids="sec-semantics-static-semantics-isfunctiondefinition,sec-grouping-operator-static-semantics-isfunctiondefinition,sec-static-semantics-static-semantics-isfunctiondefinition,sec-update-expressions-static-semantics-isfunctiondefinition,sec-unary-operators-static-semantics-isfunctiondefinition,sec-exp-operator-static-semantics-isfunctiondefinition,sec-multiplicative-operators-static-semantics-isfunctiondefinition,sec-additive-operators-static-semantics-isfunctiondefinition,sec-bitwise-shift-operators-static-semantics-isfunctiondefinition,sec-relational-operators-static-semantics-isfunctiondefinition,sec-equality-operators-static-semantics-isfunctiondefinition,sec-binary-bitwise-operators-static-semantics-isfunctiondefinition,sec-binary-logical-operators-static-semantics-isfunctiondefinition,sec-conditional-operator-static-semantics-isfunctiondefinition,sec-assignment-operators-static-semantics-isfunctiondefinition,sec-comma-operator-static-semantics-isfunctiondefinition,sec-function-definitions-static-semantics-isfunctiondefinition,sec-generator-function-definitions-static-semantics-isfunctiondefinition,sec-async-generator-function-definitions-static-semantics-isfunctiondefinition,sec-class-definitions-static-semantics-isfunctiondefinition,sec-async-function-definitions-static-semantics-IsFunctionDefinition" type="sdo">
-      <h1>Static Semantics: IsFunctionDefinition</h1>
+      <h1>Static Semantics: IsFunctionDefinition (): a Boolean</h1>
       <dl class="header">
       </dl>
       <emu-grammar>PrimaryExpression : CoverParenthesizedExpressionAndArrowParameterList</emu-grammar>
@@ -9114,7 +9114,7 @@
       <h1>
         Static Semantics: IsAnonymousFunctionDefinition (
           _expr_: an |AssignmentExpression| Parse Node or an |Initializer| Parse Node,
-        )
+        ): a Boolean
       </h1>
       <dl class="header">
         <dt>description</dt>
@@ -9129,7 +9129,7 @@
     </emu-clause>
 
     <emu-clause id="sec-static-semantics-isidentifierref" oldids="sec-semantics-static-semantics-isidentifierref,sec-static-semantics-static-semantics-isidentifierref" type="sdo">
-      <h1>Static Semantics: IsIdentifierRef</h1>
+      <h1>Static Semantics: IsIdentifierRef (): a Boolean</h1>
       <dl class="header">
       </dl>
       <emu-grammar>PrimaryExpression : IdentifierReference</emu-grammar>
@@ -9176,7 +9176,7 @@
       <h1>
         Runtime Semantics: NamedEvaluation (
           _name_: unknown,
-        )
+        ): a Completion Record normally containing an ECMAScript language value
       </h1>
       <dl class="header">
       </dl>
@@ -9239,7 +9239,7 @@
       <h1>
         Static Semantics: Contains (
           _symbol_: unknown,
-        )
+        ): a Boolean
       </h1>
       <dl class="header">
       </dl>
@@ -9375,7 +9375,7 @@
       <h1>
         Static Semantics: ComputedPropertyContains (
           _symbol_: unknown,
-        )
+        ): a Boolean
       </h1>
       <dl class="header">
       </dl>
@@ -9446,7 +9446,7 @@
         Runtime Semantics: InstantiateFunctionObject (
           _scope_: unknown,
           _privateScope_: unknown,
-        )
+        ): a Completion Record normally containing a function object
       </h1>
       <dl class="header">
       </dl>
