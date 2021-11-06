@@ -9489,7 +9489,7 @@
         Runtime Semantics: BindingInitialization (
           _value_: unknown,
           _environment_: unknown,
-        )
+        ): a Completion Record
       </h1>
       <dl class="header">
       </dl>
@@ -9551,7 +9551,7 @@
             _name_: a String,
             _value_: unknown,
             _environment_: unknown,
-          )
+          ): a Completion Record
         </h1>
         <dl class="header">
         </dl>
@@ -9571,7 +9571,7 @@
         Runtime Semantics: IteratorBindingInitialization (
           _iteratorRecord_: unknown,
           _environment_: unknown,
-        )
+        ): a Completion Record
       </h1>
       <dl class="header">
       </dl>
@@ -9744,7 +9744,7 @@
     </emu-clause>
 
     <emu-clause id="sec-static-semantics-assignmenttargettype" oldids="sec-identifiers-static-semantics-assignmenttargettype,sec-identifiers-static-semantics-isvalidsimpleassignmenttarget,sec-semantics-static-semantics-assignmenttargettype,sec-semantics-static-semantics-isvalidsimpleassignmenttarget,sec-grouping-operator-static-semantics-assignmenttargettype,sec-grouping-operator-static-semantics-isvalidsimpleassignmenttarget,sec-static-semantics-static-semantics-assignmenttargettype,sec-static-semantics-static-semantics-isvalidsimpleassignmenttarget,sec-update-expressions-static-semantics-assignmenttargettype,sec-update-expressions-static-semantics-isvalidsimpleassignmenttarget,sec-unary-operators-static-semantics-assignmenttargettype,sec-unary-operators-static-semantics-isvalidsimpleassignmenttarget,sec-exp-operator-static-semantics-assignmenttargettype,sec-exp-operator-static-semantics-isvalidsimpleassignmenttarget,sec-multiplicative-operators-static-semantics-assignmenttargettype,sec-multiplicative-operators-static-semantics-isvalidsimpleassignmenttarget,sec-additive-operators-static-semantics-assignmenttargettype,sec-additive-operators-static-semantics-isvalidsimpleassignmenttarget,sec-bitwise-shift-operators-static-semantics-assignmenttargettype,sec-bitwise-shift-operators-static-semantics-isvalidsimpleassignmenttarget,sec-relational-operators-static-semantics-assignmenttargettype,sec-relational-operators-static-semantics-isvalidsimpleassignmenttarget,sec-equality-operators-static-semantics-assignmenttargettype,sec-equality-operators-static-semantics-isvalidsimpleassignmenttarget,sec-binary-bitwise-operators-static-semantics-assignmenttargettype,sec-binary-bitwise-operators-static-semantics-isvalidsimpleassignmenttarget,sec-binary-logical-operators-static-semantics-assignmenttargettype,sec-binary-logical-operators-static-semantics-isvalidsimpleassignmenttarget,sec-conditional-operator-static-semantics-assignmenttargettype,sec-conditional-operator-static-semantics-isvalidsimpleassignmenttarget,sec-assignment-operators-static-semantics-assignmenttargettype,sec-assignment-operators-static-semantics-isvalidsimpleassignmenttarget,sec-comma-operator-static-semantics-assignmenttargettype,sec-comma-operator-static-semantics-isvalidsimpleassignmenttarget" type="sdo">
-      <h1>Static Semantics: AssignmentTargetType</h1>
+      <h1>Static Semantics: AssignmentTargetType (): ~simple~ or ~invalid~</h1>
       <dl class="header">
       </dl>
       <emu-grammar>IdentifierReference : Identifier</emu-grammar>
@@ -9902,7 +9902,7 @@
     </emu-clause>
 
     <emu-clause id="sec-static-semantics-propname" oldids="sec-object-initializer-static-semantics-propname,sec-method-definitions-static-semantics-propname,sec-generator-function-definitions-static-semantics-propname,sec-async-generator-function-definitions-static-semantics-propname,sec-class-definitions-static-semantics-propname,sec-async-function-definitions-static-semantics-PropName" type="sdo">
-      <h1>Static Semantics: PropName</h1>
+      <h1>Static Semantics: PropName (): a String or ~empty~</h1>
       <dl class="header">
       </dl>
       <emu-grammar>PropertyDefinition : IdentifierReference</emu-grammar>
@@ -10121,7 +10121,7 @@
           <h1>
             HasBinding (
               _N_: a String,
-            )
+            ): a Boolean
           </h1>
           <dl class="header">
             <dt>for</dt>
@@ -10141,7 +10141,7 @@
             CreateMutableBinding (
               _N_: a String,
               _D_: a Boolean,
-            )
+            ): ~unused~
           </h1>
           <dl class="header">
             <dt>for</dt>
@@ -10153,7 +10153,7 @@
           <emu-alg>
             1. Assert: _envRec_ does not already have a binding for _N_.
             1. Create a mutable binding in _envRec_ for _N_ and record that it is uninitialized. If _D_ is *true*, record that the newly created binding may be deleted by a subsequent DeleteBinding call.
-            1. Return NormalCompletion(~empty~).
+            1. Return ~unused~.
           </emu-alg>
         </emu-clause>
 
@@ -10162,7 +10162,7 @@
             CreateImmutableBinding (
               _N_: a String,
               _S_: a Boolean,
-            )
+            ): ~unused~
           </h1>
           <dl class="header">
             <dt>for</dt>
@@ -10174,7 +10174,7 @@
           <emu-alg>
             1. Assert: _envRec_ does not already have a binding for _N_.
             1. Create an immutable binding in _envRec_ for _N_ and record that it is uninitialized. If _S_ is *true*, record that the newly created binding is a strict binding.
-            1. Return NormalCompletion(~empty~).
+            1. Return ~unused~.
           </emu-alg>
         </emu-clause>
 
@@ -10183,7 +10183,7 @@
             InitializeBinding (
               _N_: a String,
               _V_: an ECMAScript language value,
-            )
+            ): ~unused~
           </h1>
           <dl class="header">
             <dt>for</dt>
@@ -10196,7 +10196,7 @@
             1. Assert: _envRec_ must have an uninitialized binding for _N_.
             1. Set the bound value for _N_ in _envRec_ to _V_.
             1. <emu-not-ref>Record</emu-not-ref> that the binding for _N_ in _envRec_ has been initialized.
-            1. Return NormalCompletion(~empty~).
+            1. Return ~unused~.
           </emu-alg>
         </emu-clause>
 
@@ -10206,7 +10206,7 @@
               _N_: a String,
               _V_: an ECMAScript language value,
               _S_: a Boolean,
-            )
+            ): ~unused~
           </h1>
           <dl class="header">
             <dt>for</dt>
@@ -10220,14 +10220,14 @@
               1. If _S_ is *true*, throw a *ReferenceError* exception.
               1. Perform _envRec_.CreateMutableBinding(_N_, *true*).
               1. Perform _envRec_.InitializeBinding(_N_, _V_).
-              1. Return NormalCompletion(~empty~).
+              1. Return ~unused~.
             1. If the binding for _N_ in _envRec_ is a strict binding, set _S_ to *true*.
             1. If the binding for _N_ in _envRec_ has not yet been initialized, throw a *ReferenceError* exception.
             1. Else if the binding for _N_ in _envRec_ is a mutable binding, change its bound value to _V_.
             1. Else,
               1. Assert: This is an attempt to change the value of an immutable binding.
               1. If _S_ is *true*, throw a *TypeError* exception.
-            1. Return NormalCompletion(~empty~).
+            1. Return ~unused~.
           </emu-alg>
           <emu-note>
             <p>An example of ECMAScript code that results in a missing binding at step <emu-xref href="#step-setmutablebinding-missing-binding"></emu-xref> is:</p>
@@ -10240,7 +10240,7 @@
             GetBindingValue (
               _N_: a String,
               _S_: a Boolean,
-            )
+            ): a Completion Record normally containing an ECMAScript language value
           </h1>
           <dl class="header">
             <dt>for</dt>
