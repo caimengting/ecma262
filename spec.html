@@ -10260,7 +10260,7 @@
           <h1>
             DeleteBinding (
               _N_: a String,
-            )
+            ): a Boolean
           </h1>
           <dl class="header">
             <dt>for</dt>
@@ -10278,7 +10278,7 @@
         </emu-clause>
 
         <emu-clause id="sec-declarative-environment-records-hasthisbinding" type="concrete method">
-          <h1>HasThisBinding ( )</h1>
+          <h1>HasThisBinding ( ): *false*</h1>
           <dl class="header">
             <dt>for</dt>
             <dd>a declarative Environment Record _envRec_</dd>
@@ -10292,7 +10292,7 @@
         </emu-clause>
 
         <emu-clause id="sec-declarative-environment-records-hassuperbinding" type="concrete method">
-          <h1>HasSuperBinding ( )</h1>
+          <h1>HasSuperBinding ( ): *false*</h1>
           <dl class="header">
             <dt>for</dt>
             <dd>a declarative Environment Record _envRec_</dd>
@@ -10306,7 +10306,7 @@
         </emu-clause>
 
         <emu-clause id="sec-declarative-environment-records-withbaseobject" type="concrete method">
-          <h1>WithBaseObject ( )</h1>
+          <h1>WithBaseObject ( ): *undefined*</h1>
           <dl class="header">
             <dt>for</dt>
             <dd>a declarative Environment Record _envRec_</dd>
@@ -10365,7 +10365,7 @@
           <h1>
             HasBinding (
               _N_: a String,
-            )
+            ): a Completion Record normally containing a Boolean
           </h1>
           <dl class="header">
             <dt>for</dt>
@@ -10392,7 +10392,7 @@
             CreateMutableBinding (
               _N_: a String,
               _D_: a Boolean,
-            )
+            ): a Completion Record
           </h1>
           <dl class="header">
             <dt>for</dt>
@@ -10420,7 +10420,7 @@
             InitializeBinding (
               _N_: a String,
               _V_: an ECMAScript language value,
-            )
+            ): a Completion Record normally containing a Boolean
           </h1>
           <dl class="header">
             <dt>for</dt>
@@ -10443,7 +10443,7 @@
               _N_: a String,
               _V_: an ECMAScript language value,
               _S_: a Boolean,
-            )
+            ): a Completion Record normally containing a Boolean
           </h1>
           <dl class="header">
             <dt>for</dt>
@@ -10465,7 +10465,7 @@
             GetBindingValue (
               _N_: a String,
               _S_: a Boolean,
-            )
+            ): a Completion Record
           </h1>
           <dl class="header">
             <dt>for</dt>
@@ -10487,7 +10487,7 @@
           <h1>
             DeleteBinding (
               _N_: a String,
-            )
+            ): a Completion Record normally containing a Boolean
           </h1>
           <dl class="header">
             <dt>for</dt>
@@ -10503,7 +10503,7 @@
         </emu-clause>
 
         <emu-clause id="sec-object-environment-records-hasthisbinding" type="concrete method">
-          <h1>HasThisBinding ( )</h1>
+          <h1>HasThisBinding ( ): *false*</h1>
           <dl class="header">
             <dt>for</dt>
             <dd>an object Environment Record _envRec_</dd>
@@ -10517,7 +10517,7 @@
         </emu-clause>
 
         <emu-clause id="sec-object-environment-records-hassuperbinding" type="concrete method">
-          <h1>HasSuperBinding ( )</h1>
+          <h1>HasSuperBinding ( ): *false*</h1>
           <dl class="header">
             <dt>for</dt>
             <dd>an object Environment Record _envRec_</dd>
@@ -10531,7 +10531,7 @@
         </emu-clause>
 
         <emu-clause id="sec-object-environment-records-withbaseobject" type="concrete method">
-          <h1>WithBaseObject ( )</h1>
+          <h1>WithBaseObject ( ): an ECMAScript language value</h1>
           <dl class="header">
             <dt>for</dt>
             <dd>an object Environment Record _envRec_</dd>
@@ -10649,7 +10649,7 @@
           <h1>
             BindThisValue (
               _V_: an ECMAScript language value,
-            )
+            ): a Completion Record normally containing an ECMAScript language value
           </h1>
           <dl class="header">
             <dt>for</dt>
@@ -10665,7 +10665,7 @@
         </emu-clause>
 
         <emu-clause id="sec-function-environment-records-hasthisbinding" type="concrete method">
-          <h1>HasThisBinding ( )</h1>
+          <h1>HasThisBinding ( ): a Boolean</h1>
           <dl class="header">
             <dt>for</dt>
             <dd>a function Environment Record _envRec_</dd>
@@ -10676,7 +10676,7 @@
         </emu-clause>
 
         <emu-clause id="sec-function-environment-records-hassuperbinding" type="concrete method">
-          <h1>HasSuperBinding ( )</h1>
+          <h1>HasSuperBinding ( ): a Boolean</h1>
           <dl class="header">
             <dt>for</dt>
             <dd>a function Environment Record _envRec_</dd>
@@ -10688,7 +10688,7 @@
         </emu-clause>
 
         <emu-clause id="sec-function-environment-records-getthisbinding" type="concrete method">
-          <h1>GetThisBinding ( )</h1>
+          <h1>GetThisBinding ( ): a Completion Record normally containing an ECMAScript language value</h1>
           <dl class="header">
             <dt>for</dt>
             <dd>a function Environment Record _envRec_</dd>
@@ -10701,7 +10701,7 @@
         </emu-clause>
 
         <emu-clause id="sec-getsuperbase" type="concrete method">
-          <h1>GetSuperBase ( )</h1>
+          <h1>GetSuperBase ( ): a Completion Record normally containing an ECMAScript language value</h1>
           <dl class="header">
             <dt>for</dt>
             <dd>a function Environment Record _envRec_</dd>
@@ -10996,7 +10996,7 @@
           <h1>
             DeleteBinding (
               _N_: a String,
-            )
+            ): a Completion Record normally containing a Boolean
           </h1>
           <dl class="header">
             <dt>for</dt>
