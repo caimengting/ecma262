@@ -11053,7 +11053,7 @@
         </emu-clause>
 
         <emu-clause id="sec-global-environment-records-withbaseobject" type="concrete method">
-          <h1>WithBaseObject ( ) *undefined*</h1>
+          <h1>WithBaseObject ( ): *undefined*</h1>
           <dl class="header">
             <dt>for</dt>
             <dd>a global Environment Record _envRec_</dd>
@@ -11220,7 +11220,7 @@
               _N_: a String,
               _V_: an ECMAScript language value,
               _D_: a Boolean,
-            ) a Completion Record normally containing ~unused~
+            ): a Completion Record normally containing ~unused~
           </h1>
           <dl class="header">
             <dt>for</dt>
@@ -14362,7 +14362,7 @@
             1. Let _map_ be _args_.[[ParameterMap]].
             1. Let _isMapped_ be ! HasOwnProperty(_map_, _P_).
           1. If _isMapped_ is *true*, then
-            1. Assert: formal parameters mapped by argument objects are always writable.
+            1. Assert: Formal parameters mapped by argument objects are always writable.
             1. Call Set(_map_, _P_, _V_, *false*).
           1. Return ? OrdinarySet(_args_, _P_, _V_, _Receiver_).
         </emu-alg>
