@@ -10862,7 +10862,7 @@
           <h1>
             HasBinding (
               _N_: a String,
-            )
+            ): a Completion Record normally containing a Boolean
           </h1>
           <dl class="header">
             <dt>for</dt>
@@ -10884,7 +10884,7 @@
             CreateMutableBinding (
               _N_: a String,
               _D_: a Boolean,
-            )
+            ): a Completion Record normally containing ~unused~
           </h1>
           <dl class="header">
             <dt>for</dt>
@@ -10905,7 +10905,7 @@
             CreateImmutableBinding (
               _N_: a String,
               _S_: a Boolean,
-            )
+            ): a Completion Record normally containing ~unused~
           </h1>
           <dl class="header">
             <dt>for</dt>
@@ -10926,7 +10926,7 @@
             InitializeBinding (
               _N_: a String,
               _V_: an ECMAScript language value,
-            )
+            ): a Completion Record normally containing ~unused~
           </h1>
           <dl class="header">
             <dt>for</dt>
@@ -10941,7 +10941,8 @@
               1. Return _DclRec_.InitializeBinding(_N_, _V_).
             1. Assert: If the binding exists, it must be in the object Environment Record.
             1. Let _ObjRec_ be _envRec_.[[ObjectRecord]].
-            1. Return ? _ObjRec_.InitializeBinding(_N_, _V_).
+            1. Perform ? _ObjRec_.InitializeBinding(_N_, _V_).
+            1. Return ~unused~.
           </emu-alg>
         </emu-clause>
 
@@ -10951,7 +10952,7 @@
               _N_: a String,
               _V_: an ECMAScript language value,
               _S_: a Boolean,
-            )
+            ): a Completion Record normally containing ~unused~
           </h1>
           <dl class="header">
             <dt>for</dt>
@@ -10965,7 +10966,8 @@
             1. If _DclRec_.HasBinding(_N_) is *true*, then
               1. Return _DclRec_.SetMutableBinding(_N_, _V_, _S_).
             1. Let _ObjRec_ be _envRec_.[[ObjectRecord]].
-            1. Return ? _ObjRec_.SetMutableBinding(_N_, _V_, _S_).
+            1. Perform ? _ObjRec_.SetMutableBinding(_N_, _V_, _S_).
+            1. Return ~unused~.
           </emu-alg>
         </emu-clause>
 
@@ -10974,7 +10976,7 @@
             GetBindingValue (
               _N_: a String,
               _S_: a Boolean,
-            )
+            ): a Completion Record normally containing an ECMAScript language value
           </h1>
           <dl class="header">
             <dt>for</dt>
@@ -11023,7 +11025,7 @@
         </emu-clause>
 
         <emu-clause id="sec-global-environment-records-hasthisbinding" type="concrete method">
-          <h1>HasThisBinding ( )</h1>
+          <h1>HasThisBinding ( ): *true*</h1>
           <dl class="header">
             <dt>for</dt>
             <dd>a global Environment Record _envRec_</dd>
@@ -11037,7 +11039,7 @@
         </emu-clause>
 
         <emu-clause id="sec-global-environment-records-hassuperbinding" type="concrete method">
-          <h1>HasSuperBinding ( )</h1>
+          <h1>HasSuperBinding ( ): *false*</h1>
           <dl class="header">
             <dt>for</dt>
             <dd>a global Environment Record _envRec_</dd>
@@ -11051,7 +11053,7 @@
         </emu-clause>
 
         <emu-clause id="sec-global-environment-records-withbaseobject" type="concrete method">
-          <h1>WithBaseObject ( )</h1>
+          <h1>WithBaseObject ( ) *undefined*</h1>
           <dl class="header">
             <dt>for</dt>
             <dd>a global Environment Record _envRec_</dd>
@@ -11062,7 +11064,7 @@
         </emu-clause>
 
         <emu-clause id="sec-global-environment-records-getthisbinding" type="concrete method">
-          <h1>GetThisBinding ( )</h1>
+          <h1>GetThisBinding ( ): an ECMAScript language value</h1>
           <dl class="header">
             <dt>for</dt>
             <dd>a global Environment Record _envRec_</dd>
@@ -11076,7 +11078,7 @@
           <h1>
             HasVarDeclaration (
               _N_: a String,
-            )
+            ): a Boolean
           </h1>
           <dl class="header">
             <dt>for</dt>
@@ -11096,7 +11098,7 @@
           <h1>
             HasLexicalDeclaration (
               _N_: a String,
-            )
+            ): a Boolean
           </h1>
           <dl class="header">
             <dt>for</dt>
@@ -11115,7 +11117,7 @@
           <h1>
             HasRestrictedGlobalProperty (
               _N_: a String,
-            )
+            ): a Completion Record normally containing a Boolean
           </h1>
           <dl class="header">
             <dt>for</dt>
@@ -11141,7 +11143,7 @@
           <h1>
             CanDeclareGlobalVar (
               _N_: a String,
-            )
+            ): a Completion Record normally containing a Boolean
           </h1>
           <dl class="header">
             <dt>for</dt>
@@ -11163,7 +11165,7 @@
           <h1>
             CanDeclareGlobalFunction (
               _N_: a String,
-            )
+            ): a Completion Record normally containing a Boolean
           </h1>
           <dl class="header">
             <dt>for</dt>
@@ -11188,7 +11190,7 @@
             CreateGlobalVarBinding (
               _N_: a String,
               _D_: a Boolean,
-            )
+            ): a Completion Record normally containing ~unused~
           </h1>
           <dl class="header">
             <dt>for</dt>
@@ -11208,7 +11210,7 @@
             1. Let _varDeclaredNames_ be _envRec_.[[VarNames]].
             1. If _varDeclaredNames_ does not contain _N_, then
               1. Append _N_ to _varDeclaredNames_.
-            1. Return NormalCompletion(~empty~).
+            1. Return NormalCompletion(~unused~).
           </emu-alg>
         </emu-clause>
 
@@ -11218,7 +11220,7 @@
               _N_: a String,
               _V_: an ECMAScript language value,
               _D_: a Boolean,
-            )
+            ) a Completion Record normally containing ~unused~
           </h1>
           <dl class="header">
             <dt>for</dt>
@@ -11240,7 +11242,7 @@
             1. Let _varDeclaredNames_ be _envRec_.[[VarNames]].
             1. If _varDeclaredNames_ does not contain _N_, then
               1. Append _N_ to _varDeclaredNames_.
-            1. Return NormalCompletion(~empty~).
+            1. Return NormalCompletion(~unused~).
           </emu-alg>
           <emu-note>
             <p>Global function declarations are always represented as own properties of the global object. If possible, an existing own property is reconfigured to have a standard set of attribute values. Step <emu-xref href="#step-createglobalfunctionbinding-set"></emu-xref> is equivalent to what calling the InitializeBinding concrete method would do and if _globalObject_ is a Proxy will produce the same sequence of Proxy trap calls.</p>
@@ -11287,7 +11289,7 @@
             GetBindingValue (
               _N_: a String,
               _S_: a Boolean,
-            )
+            ): a Completion Record normally containing an ECMAScript language value
           </h1>
           <dl class="header">
             <dt>for</dt>
@@ -11321,7 +11323,7 @@
         </emu-clause>
 
         <emu-clause id="sec-module-environment-records-hasthisbinding" type="concrete method">
-          <h1>HasThisBinding ( )</h1>
+          <h1>HasThisBinding ( ): *true*</h1>
           <dl class="header">
             <dt>for</dt>
             <dd>a module Environment Record _envRec_</dd>
@@ -11335,7 +11337,7 @@
         </emu-clause>
 
         <emu-clause id="sec-module-environment-records-getthisbinding" type="concrete method">
-          <h1>GetThisBinding ( )</h1>
+          <h1>GetThisBinding ( ): *undefined*</h1>
           <dl class="header">
             <dt>for</dt>
             <dd>a module Environment Record _envRec_</dd>
@@ -11351,7 +11353,7 @@
               _N_: a String,
               _M_: a Module Record,
               _N2_: a String,
-            )
+            ): ~unused~
           </h1>
           <dl class="header">
             <dt>for</dt>
@@ -11364,7 +11366,7 @@
             1. Assert: _envRec_ does not already have a binding for _N_.
             1. Assert: When _M_.[[Environment]] is instantiated it will have a direct binding for _N2_.
             1. Create an immutable indirect binding in _envRec_ for _N_ that references _M_ and _N2_ as its target binding and record that the binding is initialized.
-            1. Return NormalCompletion(~empty~).
+            1. Return ~unused~.
           </emu-alg>
         </emu-clause>
       </emu-clause>
@@ -11380,16 +11382,16 @@
             _env_: an Environment Record or *null*,
             _name_: a String,
             _strict_: a Boolean,
-          )
+          ): a Completion Record normally containing a Reference Record
         </h1>
         <dl class="header">
         </dl>
         <emu-alg>
           1. If _env_ is the value *null*, then
-            1. Return the Reference Record { [[Base]]: ~unresolvable~, [[ReferencedName]]: _name_, [[Strict]]: _strict_, [[ThisValue]]: ~empty~ }.
+            1. Return NormalCompletion(the Reference Record { [[Base]]: ~unresolvable~, [[ReferencedName]]: _name_, [[Strict]]: _strict_, [[ThisValue]]: ~empty~ }).
           1. Let _exists_ be ? _env_.HasBinding(_name_).
           1. If _exists_ is *true*, then
-            1. Return the Reference Record { [[Base]]: _env_, [[ReferencedName]]: _name_, [[Strict]]: _strict_, [[ThisValue]]: ~empty~ }.
+            1. Return NormalCompletion(the Reference Record { [[Base]]: _env_, [[ReferencedName]]: _name_, [[Strict]]: _strict_, [[ThisValue]]: ~empty~ }).
           1. Else,
             1. Let _outer_ be _env_.[[OuterEnv]].
             1. Return ? GetIdentifierReference(_outer_, _name_, _strict_).
@@ -14360,8 +14362,8 @@
             1. Let _map_ be _args_.[[ParameterMap]].
             1. Let _isMapped_ be ! HasOwnProperty(_map_, _P_).
           1. If _isMapped_ is *true*, then
-            1. Let _setStatus_ be Set(_map_, _P_, _V_, *false*).
-            1. Assert: _setStatus_ is *true* because formal parameters mapped by argument objects are always writable.
+            1. Assert: formal parameters mapped by argument objects are always writable.
+            1. Call Set(_map_, _P_, _V_, *false*).
           1. Return ? OrdinarySet(_args_, _P_, _V_, _Receiver_).
         </emu-alg>
       </emu-clause>
@@ -27679,7 +27681,7 @@
                   1. Perform ! _env_.CreateImmutableBinding(_in_.[[LocalName]], *true*).
                   1. Call _env_.InitializeBinding(_in_.[[LocalName]], _namespace_).
                 1. Else,
-                  1. Call _env_.CreateImportBinding(_in_.[[LocalName]], _resolution_.[[Module]], _resolution_.[[BindingName]]).
+                  1. Perform _env_.CreateImportBinding(_in_.[[LocalName]], _resolution_.[[Module]], _resolution_.[[BindingName]]).
             1. Let _moduleContext_ be a new ECMAScript code execution context.
             1. Set the Function of _moduleContext_ to *null*.
             1. Assert: _module_.[[Realm]] is not *undefined*.
