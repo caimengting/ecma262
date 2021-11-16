@@ -11403,7 +11403,7 @@
         <h1>
           NewDeclarativeEnvironment (
             _E_: an Environment Record,
-          )
+          ): a declarative Environment Record
         </h1>
         <dl class="header">
         </dl>
@@ -11420,7 +11420,7 @@
             _O_: an Object,
             _W_: a Boolean,
             _E_: an Environment Record or *null*,
-          )
+          ): an object Environment Record
         </h1>
         <dl class="header">
         </dl>
@@ -11438,7 +11438,7 @@
           NewFunctionEnvironment (
             _F_: an ECMAScript function,
             _newTarget_: an Object or *undefined*,
-          )
+          ): a function Environment Record
         </h1>
         <dl class="header">
         </dl>
@@ -11458,7 +11458,7 @@
           NewGlobalEnvironment (
             _G_: unknown,
             _thisValue_: unknown,
-          )
+          ): a global Environment Record
         </h1>
         <dl class="header">
         </dl>
@@ -11479,7 +11479,7 @@
         <h1>
           NewModuleEnvironment (
             _E_: an Environment Record,
-          )
+          ): a module Environment Record
         </h1>
         <dl class="header">
         </dl>
@@ -11544,7 +11544,7 @@
         <h1>
           NewPrivateEnvironment (
             _outerPrivEnv_: a PrivateEnvironment Record or *null*,
-          )
+          ): a PrivateEnvironment Record
         </h1>
         <dl class="header">
         </dl>
@@ -11559,7 +11559,7 @@
           ResolvePrivateIdentifier (
             _privEnv_: a PrivateEnvironment Record,
             _identifier_: a String,
-          )
+          ): a Private Name
         </h1>
         <dl class="header">
         </dl>
@@ -11610,7 +11610,7 @@
             [[GlobalObject]]
           </td>
           <td>
-            Object
+            Object or *undefined*
           </td>
           <td>
             The global object for this realm
@@ -11654,7 +11654,7 @@
     </emu-table>
 
     <emu-clause id="sec-createrealm" type="abstract operation">
-      <h1>CreateRealm ( )</h1>
+      <h1>CreateRealm ( ): a Realm Record</h1>
       <dl class="header">
       </dl>
       <emu-alg>
@@ -11671,7 +11671,7 @@
       <h1>
         CreateIntrinsics (
           _realmRec_: unknown,
-        )
+        ): a Record
       </h1>
       <dl class="header">
       </dl>
@@ -11690,7 +11690,7 @@
           _realmRec_: unknown,
           _globalObj_: an Object or *undefined*,
           _thisValue_: unknown,
-        )
+        ): ~unused~
       </h1>
       <dl class="header">
       </dl>
@@ -11703,7 +11703,7 @@
         1. Set _realmRec_.[[GlobalObject]] to _globalObj_.
         1. Let _newGlobalEnv_ be NewGlobalEnvironment(_globalObj_, _thisValue_).
         1. Set _realmRec_.[[GlobalEnv]] to _newGlobalEnv_.
-        1. Return _realmRec_.
+        1. Return ~unused~.
       </emu-alg>
     </emu-clause>
 
@@ -11711,7 +11711,7 @@
       <h1>
         SetDefaultGlobalBindings (
           _realmRec_: unknown,
-        )
+        ): a Completion Record normally containing an ECMAScript language value
       </h1>
       <dl class="header">
       </dl>
@@ -11840,7 +11840,7 @@
     <p>An execution context is purely a specification mechanism and need not correspond to any particular artefact of an ECMAScript implementation. It is impossible for ECMAScript code to directly access or observe an execution context.</p>
 
     <emu-clause id="sec-getactivescriptormodule" type="abstract operation">
-      <h1>GetActiveScriptOrModule ( )</h1>
+      <h1>GetActiveScriptOrModule ( ): a Script Record, a Module Record, or *null*</h1>
       <dl class="header">
         <dt>description</dt>
         <dd>It is used to determine the running script or module, based on the running execution context.</dd>
@@ -11858,7 +11858,7 @@
         ResolveBinding (
           _name_: a String,
           optional _env_: an Environment Record or *undefined*,
-        )
+        ): a Completion Record normally containing a Reference Record
       </h1>
       <dl class="header">
         <dt>description</dt>
@@ -11877,7 +11877,7 @@
     </emu-clause>
 
     <emu-clause id="sec-getthisenvironment" type="abstract operation">
-      <h1>GetThisEnvironment ( )</h1>
+      <h1>GetThisEnvironment ( ): an Environment Record</h1>
       <dl class="header">
         <dt>description</dt>
         <dd>It finds the Environment Record that currently supplies the binding of the keyword `this`.</dd>
@@ -11897,7 +11897,7 @@
     </emu-clause>
 
     <emu-clause id="sec-resolvethisbinding" type="abstract operation">
-      <h1>ResolveThisBinding ( )</h1>
+      <h1>ResolveThisBinding ( ): a Completion Record normally containing an ECMAScript language value</h1>
       <dl class="header">
         <dt>description</dt>
         <dd>It determines the binding of the keyword `this` using the LexicalEnvironment of the running execution context.</dd>
@@ -11909,7 +11909,7 @@
     </emu-clause>
 
     <emu-clause id="sec-getnewtarget" type="abstract operation">
-      <h1>GetNewTarget ( )</h1>
+      <h1>GetNewTarget ( ): an Object or *undefined*</h1>
       <dl class="header">
         <dt>description</dt>
         <dd>It determines the NewTarget value using the LexicalEnvironment of the running execution context.</dd>
@@ -11922,7 +11922,7 @@
     </emu-clause>
 
     <emu-clause id="sec-getglobalobject" type="abstract operation">
-      <h1>GetGlobalObject ( )</h1>
+      <h1>GetGlobalObject ( ): an Object or *undefined*</h1>
       <dl class="header">
         <dt>description</dt>
         <dd>It returns the global object used by the currently running execution context.</dd>
@@ -12025,13 +12025,13 @@
       <h1>
         HostMakeJobCallback (
           _callback_: a function object,
-        )
+        ): a JobCallback Record
       </h1>
       <dl class="header">
       </dl>
       <p>An implementation of HostMakeJobCallback must conform to the following requirements:</p>
       <ul>
-        <li>It must complete normally with a JobCallback Record whose [[Callback]] field is _callback_.</li>
+        <li>It must return a JobCallback Record whose [[Callback]] field is _callback_.</li>
       </ul>
       <p>The default implementation of HostMakeJobCallback performs the following steps when called:</p>
       <emu-alg>
@@ -12049,7 +12049,7 @@
           _jobCallback_: a JobCallback Record,
           _V_: an ECMAScript language value,
           _argumentsList_: a List of ECMAScript language values,
-        )
+        ): a Completion Record
       </h1>
       <dl class="header">
       </dl>
